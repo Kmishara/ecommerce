@@ -1,0 +1,27 @@
+const mongoose = require("mongoose");
+const { unique } = require("next/dist/build/utils");
+const Users=new mongoose.Schema({
+ 
+    name:{
+        type:String,
+       
+    },
+   email:{
+        type:String,
+       unique:true,
+    },
+    password:{
+        type:String,
+       
+    },
+    cartData:{
+        type:Object,
+    },
+    date: {
+        type:Date,
+        default:Date.now,
+
+    },
+   
+})
+module.exports = mongoose.model("User",Users)
